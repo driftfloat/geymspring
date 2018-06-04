@@ -1,0 +1,42 @@
+bitbucket.org  =github, free private.
+
+git status
+git log
+git reset --hard f22asdfasf    版本回退到log f22asdfasf
+	版本跳跃
+    回退后看不到新的，想回到新的版本，使用git reflog
+
+git add
+git commit
+git commit -m 'add t2'
+git push  发布到主站
+git pull  从主站拉下代码
+git reset --hard HEAD  , 修改后不想要，回复到当前版本初始
+------------------------------
+撤销修改
+工作区 git checkout --filename
+暂存区 git reset HEAD filename
+本地代码库(已commit到分支) git reset --hard 版本号
+远程代码库 发布新版本
+------------------------------
+查看分支 git branch
+查看远程和本地分支 git branch -a
+创建分支 git branch name
+切换分支 git checkout name
+创建并切换分支 git checkout -b name
+分支dev上push  git push origin dev
+分支dev上pull  git pull origin dev
+分支合并 git merge dev
+git merge dev,
+冲突后提示：CONFLICT(content):
+冲突后文件:
+<<<<<<< HEAD
+master a
+=======
+dev b
+>>>>>>> dev
+	
+发生冲突后修改冲突文件,然后提交
+	git commit -i -m 'fix confict' filename
+
+
