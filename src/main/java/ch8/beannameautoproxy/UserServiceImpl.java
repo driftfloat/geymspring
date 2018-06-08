@@ -11,5 +11,10 @@ public class UserServiceImpl implements UserService {
 	public void updateUser() {
 		System.out.println("$$$业务逻辑$$$");
 	}
+
+	@Override
+	public void query() {
+		System.out.println("---业务逻辑---");
+	}
 	
 }

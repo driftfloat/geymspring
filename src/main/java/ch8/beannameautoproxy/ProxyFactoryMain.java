@@ -11,6 +11,7 @@ public class ProxyFactoryMain {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("ch8-beannameautoproxy.xml");
 		UserService us = context.getBean("userServiceImpl", UserService.class);
 		us.updateUser();
+		us.query();
 	}
 
 }

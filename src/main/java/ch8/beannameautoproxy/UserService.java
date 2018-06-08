@@ -4,4 +4,5 @@ package ch8.beannameautoproxy;
 **/
 public interface UserService {
 	void updateUser();
+	void query();
 }
