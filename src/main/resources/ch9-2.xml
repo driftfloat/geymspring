@@ -1,0 +1,73 @@
+<xml version="1.0" encoding="utf-8"/>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+   <context:property-placeholder location="ch9-jdbc.properties"/>
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+   		<property name="driverClassName" value="${jdbc.driverClass}"/>				
+   		<property name="url" value="${jdbc.url}"/>
+   		<property name="username" value="${jdbc.username}"/>
+   		<property name="password" value="${jdbc.password}"/>
+   </bean>
+   
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   		<property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+   <bean id="transactionFactoryBean" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+   	<property name="target" ref="accountService"/>
+   	<property name="transactionManager" ref="transactionManager"/>
+   	<property name="transactionAttributes">
+   		<props>
+   			<!--
+   				prop 格式:
+   					propagation		传播行为
+   					isolation		隔离级别
+   					readOnly		只读
+   					-Exception		发生此异常回滚
+   					+Exception 		发生此异常不能回滚
+   			 -->
+			<prop key="transfer">PROGRAGATION_REQUIRED</prop>
+			<prop key="*">PROGRAGATION_REQUIRED,readOnly</prop>
+   		</props>
+   	</property>
+   </bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-package ch9.demo1;
+package ch9.demo2;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;

@@ -1,15 +1,19 @@
 package ch9.demo0;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 /*  Author: kevin
  *	Date: 2018年6月12日
 **/
+@Repository
 public class AccountDaoImpl implements AccountDao {
 	private JdbcTemplate jdbcTemplate;
 	
+	@Resource
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}

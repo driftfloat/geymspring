@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.jdbc.ScriptRunner;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,12 +23,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:")
 public class Demo1 {
-	@Resource
+	@Resource(name="transactionProxyBean")
 	private AccountService accountService;
 	
 	@Resource
 	private DataSource dataSource;
 	
+	@Before
 	public void setup() throws SQLException, FileNotFoundException, IOException{
 		Connection con = dataSource.getConnection();
 //		ScriptRunner sr = new ScriptRunner(con, true, false);

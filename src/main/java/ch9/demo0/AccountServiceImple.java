@@ -3,6 +3,7 @@ package ch9.demo0;
 import javax.annotation.Resource;
 
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
@@ -10,9 +11,12 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 /*  Author: kevin
  *	Date: 2018年6月12日
 **/
+@Service
 public class AccountServiceImple implements AccountService {
+	@Resource
 	private AccountDao accountDao;
 	
+	@Resource
 	private DataSourceTransactionManager txManager;
 	
 	@Override
