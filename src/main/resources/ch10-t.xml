@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        ">
+        
+	<bean id="t" class="ch10t.Team">
+		<property name="names" value="geym,bill,billy"/>
+	</bean>
+<!-- 	<bean id="member" class="ch10t.Member"> -->
+<!-- 		<property name="code" value="0x01 0x02 0x03"/> -->
+<!-- 	</bean>    -->
+	
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.List" value="ch10t.convert.ListTypeEditSupport" />
+				<entry key="byte[]" value="ch10t.convert.ArrayTypeEditSupport" />
+			</map>
+		</property>
+	</bean> 
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
