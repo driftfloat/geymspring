@@ -12,7 +12,7 @@ public class MainApp {
 		final ConfigurableApplicationContext context =new ClassPathXmlApplicationContext("ch10-0.xml");
 		Team obj = (Team)context.getBean("t");
 		System.out.println(obj.getNames());
-		System.out.println(obj.getLeader());
+//		System.out.println(obj.getLeader());
 //		System.out.println(obj.getMemberCount());
 //		System.out.println(obj.getCreateDate());
 		

@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        ">
+   
+   <bean id="loggerBeforeAdvice" class="ch11.aop.LoggerBeforeAdvice"/>
+   
+   <bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+   		<property name="pattern">
+   			<value>.*Target.sayHello.*</value>
+   		</property>
+   		<property name="advice">
+   			<ref bean="loggerBeforeAdvice"/>
+   		</property>
+   </bean>
+   
+<!--    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"> -->
+<!--    		<property name="usePrefix" value="true"/> -->
+<!--    		<property name="proxyTargetClass" value="true"/> -->
+<!--    		<property name="advisorBeanNamePrefix" value="advisor"></property> -->
+<!--    </bean> -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+

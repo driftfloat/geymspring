@@ -12,7 +12,7 @@ public class MainApp_formatter {
 		final ConfigurableApplicationContext context =new ClassPathXmlApplicationContext("ch10-1.xml");
 		Team obj = (Team)context.getBean("t");
 		System.out.println(obj.getNames());
-		System.out.println(obj.getMemberCount());
+//		System.out.println(obj.getMemberCount());
 //		System.out.println(obj.getCreateDate());
 		
 	}
