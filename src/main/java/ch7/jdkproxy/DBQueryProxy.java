@@ -13,6 +13,7 @@ public class DBQueryProxy implements InvocationHandler {
 	
 	public Object bind(Object target) {
 		this.target = target;
+		//取得代理对象
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
 	}
 	
