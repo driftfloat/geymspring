@@ -21,7 +21,13 @@ public class DBQueryInterceptor implements MethodInterceptor {
 //		Object result = methodProxy.invoke(target, args);  // 
 		
 		// 想调用父类方法，不能直接target, 需要 invokeSuper 
-		Object result = methodProxy.invokeSuper(obj, args);  
+//		Object result = methodProxy.invokeSuper(obj, args);  
+		
+		Object result = method.invoke(target, args);  
+		
+		// 这样会出错  死循环
+//		Object result = methodProxy.invoke(obj, args);  
+//		Object result = method.invoke(obj, args);  
 		return result;
 	}
 	
